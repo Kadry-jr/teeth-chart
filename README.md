@@ -95,13 +95,6 @@ Executes end-to-end tests. (You may need to add a package for e2e testing.)
 
 Contributions are welcome! Please open an issue or submit a pull request for improvements or bug fixes.
 
----
-
-## License
-
-[MIT](LICENSE)  
-
----
 
 ## Angular CLI Reference
 
