@@ -24,7 +24,7 @@ A modern dental chart and operation planning application for dental clinics, bui
 
 1. Clone the repository:
    ```bash
-   git clone <repo-url>
+   git clone [<repo-url>](https://github.com/Kadry-jr/teeth-chart)
    cd teeth-chart
    ```
 2. Install dependencies:
