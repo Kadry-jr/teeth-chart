@@ -1,0 +1,121 @@
+.dental-chart-main-container {
+  width: 100%;
+  min-height: 600px;
+  height: 80vh;
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  padding: 0;
+  gap: 0;
+  justify-content: stretch;
+  align-items: stretch;
+}
+
+.left-panel {
+  flex: 0 0 74%;
+  min-width: 0;
+  max-width: 75%;
+  padding: 0;
+  display: flex;
+  justify-content: stretch;
+  flex-direction: column;
+  height: 100%;
+}
+
+.right-panel {
+  flex: 0 0 26%;
+  min-width: 0;
+  max-width: 350px;
+  padding: 24px 24px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+.fullscreen-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 10;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  border: none;
+  color: #222;
+  font-size: 16px;
+  font-weight: 600;
+}
+/* Fullscreen styles */
+:fullscreen .image-edit-section,
+.image-edit-section.fullscreen {
+  position: fixed !important;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 9999;
+  background: #000;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+:fullscreen .dental-chart-img,
+.image-edit-section.fullscreen .dental-chart-img {
+  width: 100vw !important;
+  height: 100vh !important;
+  max-width: 100vw !important;
+  max-height: 100vh !important;
+  object-fit: contain;
+  background: #000;
+  border-radius: 0 !important;
+}
+
+:fullscreen .tooth-buttons-overlay,
+.image-edit-section.fullscreen .tooth-buttons-overlay {
+  width: 100vw !important;
+  height: 100vh !important;
+  pointer-events: none;
+}
+
+:fullscreen .tooth-btn,
+.image-edit-section.fullscreen .tooth-btn {
+  pointer-events: auto;
+}
+
+:fullscreen .fullscreen-btn,
+.image-edit-section.fullscreen .fullscreen-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10000;
+  background: #fff;
+  color: #222;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  border: none;
+}
+
+@media (max-width: 1100px) {
+  .dental-chart-main-container {
+    flex-direction: column;
+    height: auto;
+  }
+  .left-panel, .right-panel {
+    width: 100%;
+    max-width: 100%;
+    min-width: unset;
+    padding: 18px 8px;
+  }
+}
+
+@media (max-width: 700px) {
+  .dental-chart-main-container {
+    padding: 0;
+  }
+  .left-panel, .right-panel {
+    padding: 10px 2px;
+  }
+}

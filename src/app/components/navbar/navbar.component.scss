@@ -1,0 +1,108 @@
+.navbar {
+  background: linear-gradient(135deg, #00bcd4, #2196f3);
+  color: white;
+  width:97%;
+  padding: 10px 20px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  gap: 32px;
+  margin: 0 0 12px 0;
+  justify-content: space-between;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  font-size: 24px;
+  background: rgba(255,255,255,0.2);
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.clinic-name {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 2px;
+}
+
+.doctor-name {
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.navbar-center {
+  flex: 1;
+  text-align: center;
+}
+
+.patient-info {
+  font-size: 14px;
+  font-weight: 500;
+  color: black;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-item {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.nav-item:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+.navbar-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.action-btn {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.action-btn:hover {
+  background-color: rgba(255,255,255,0.3);
+}
+
+@media (max-width: 800px) {
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 8px 4px;
+    min-height: unset;
+  }
+}

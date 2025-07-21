@@ -1,0 +1,30 @@
+<div class="quick-look-actions">
+  <button mat-raised-button color="primary" (click)="onSelectAll()" *ngIf="!allSelected">Select All</button>
+  <button mat-raised-button color="warn" (click)="onDeselectAll()" *ngIf="allSelected">Deselect All</button>
+  <button mat-raised-button color="accent" (click)="onAddOperation()" [disabled]="!selectedTeeth.length">Add Operation</button>
+</div>
+<table class="quick-look-table">
+  <thead>
+    <tr>
+      <th>Quick Look</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <div><strong>Teeth:</strong> {{ selectedTeethDisplay }}</div>
+        <div><strong>Doctor:</strong> {{ doctor || 'N/A' }}</div>
+        <div><strong>Priority:</strong> {{ priority || 'N/A' }}</div>
+      </td>
+      <td>
+        <mat-form-field appearance="outline" class="status-select-field">
+          <mat-label>Status</mat-label>
+          <mat-select [value]="status" (selectionChange)="onStatusChange($event.value)">
+            <mat-option *ngFor="let option of statusOptions" [value]="option">{{ option }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+    </tr>
+  </tbody>
+</table>

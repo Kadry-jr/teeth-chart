@@ -1,0 +1,92 @@
+.operation-table-container {
+  padding: 16px;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+  h2 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+  }
+}
+
+.operations-table {
+  width: 100%;
+  
+  .mat-column-description {
+    max-width: 150px;
+  }
+  
+  .mat-column-notes {
+    max-width: 200px;
+  }
+  
+  .operation-title {
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  
+  .operation-code {
+    font-size: 0.8rem;
+    color: #666;
+  }
+  
+  .notes-cell {
+    position: relative;
+    
+    .notes-content {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 180px;
+    }
+  }
+}
+
+.priority-indicator {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: white;
+  
+  &.priority-1 { background-color: #FF6B6B; } // High priority
+  &.priority-2 { background-color: #FF9E7A; }
+  &.priority-3 { background-color: #FFD166; }
+  &.priority-4 { background-color: #A0C4FF; }
+  &.priority-5 { background-color: #4ECDC4; } // Low priority
+}
+
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  
+  &.status-tbd {
+    background-color: #E0E0E0;
+    color: #333;
+  }
+  
+  &.status-in-progress {
+    background-color: #A0C4FF;
+    color: #0D47A1;
+  }
+  
+  &.status-completed {
+    background-color: #C8E6C9;
+    color: #2E7D32;
+  }
+}
+
+.no-operations {
+  text-align: center;
+  padding: 24px;
+  color: #666;
+  font-style: italic;
+}

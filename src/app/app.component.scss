@@ -1,0 +1,18 @@
+.app-container {
+  position: relative;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+.main-content {
+  padding: 20px;
+}
+
+.content {
+  display: flex;               // ✅ Fix layout
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #fcfcfc, #ffffff);
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #333;                 // white text on white background is unreadable
+}

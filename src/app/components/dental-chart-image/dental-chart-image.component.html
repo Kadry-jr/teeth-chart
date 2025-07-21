@@ -1,0 +1,11 @@
+<div class="image-edit-section">
+  <img class="dental-chart-img" [src]="imageSrc || 'assets/teeth-chart-image.jpeg' " alt="Dental Chart" />\
+  <div class="tooth-buttons-overlay">
+    <button *ngFor="let tooth of upperTeeth.concat(lowerTeeth); let i = index"
+            class="tooth-btn"
+            [class.selected]="tooth.selected"
+            (click)="onToothClick(tooth.number)">
+      {{ tooth.number }}
+    </button>
+  </div>
+</div>

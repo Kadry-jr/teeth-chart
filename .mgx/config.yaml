@@ -1,0 +1,4 @@
+build: npm run build
+build_path: dist
+dev: npm run start -- --port 4202
+install: npm install

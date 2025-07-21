@@ -1,0 +1,107 @@
+<div class="operation-modal">
+  <form [formGroup]="operationForm" (ngSubmit)="onSubmit()" class="form-container">
+    <h2 mat-dialog-title class="modal-title">{{ isNew ? 'Add New Operation' : 'Edit Operation' }}</h2>
+    <div mat-dialog-content class="form-dialog">
+      <div class="form-row">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Operation Title</mat-label>
+          <input matInput formControlName="title" required>
+          <mat-error *ngIf="operationForm.get('title')?.hasError('required')">Title is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="form-row">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Code</mat-label>
+          <input matInput formControlName="code">
+        </mat-form-field>
+      </div>
+      <div class="form-row">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Dentist</mat-label>
+          <mat-select formControlName="dentistId" required>
+            <mat-option *ngFor="let dentist of dentists" [value]="dentist.id">
+              {{ dentist.name }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="operationForm.get('dentistId')?.hasError('required')">Dentist is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="form-row">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Priority</mat-label>
+          <mat-select formControlName="priority" required>
+            <mat-option [value]="1">High (1)</mat-option>
+            <mat-option [value]="2">Medium-High (2)</mat-option>
+            <mat-option [value]="3">Medium (3)</mat-option>
+            <mat-option [value]="4">Medium-Low (4)</mat-option>
+            <mat-option [value]="5">Low (5)</mat-option>
+          </mat-select>
+          <mat-error *ngIf="operationForm.get('priority')?.hasError('required')">Priority is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="form-row">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Status</mat-label>
+          <mat-select formControlName="status" required>
+            <mat-option value="To Do">To Do</mat-option>
+            <mat-option value="In Progress">In Progress</mat-option>
+            <mat-option value="Completed">Completed</mat-option>
+          </mat-select>
+          <mat-error *ngIf="operationForm.get('status')?.hasError('required')">Status is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="form-row">
+        <mat-form-field appearance="outline">
+          <mat-label>Day</mat-label>
+          <mat-select formControlName="plannedDay" required>
+            <mat-option *ngFor="let day of days" [value]="day">{{ day }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Month</mat-label>
+          <mat-select formControlName="plannedMonth" required>
+            <mat-option *ngFor="let month of months" [value]="month.value">
+              {{ month.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Year</mat-label>
+          <mat-select formControlName="plannedYear" required>
+            <mat-option *ngFor="let year of years" [value]="year">{{ year }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="form-row">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Notes</mat-label>
+          <textarea matInput formControlName="notes" rows="3"></textarea>
+        </mat-form-field>
+      </div>
+      <div class="selected-teeth">
+        <h3>Selected Teeth</h3>
+        <div class="teeth-chips">
+          <ng-container *ngIf="teethNumbers.length === 1">
+            <mat-chip>{{ teethNumbers[0] }}</mat-chip>
+          </ng-container>
+          <ng-container *ngIf="teethNumbers.length === 32">
+            <div class="all-teeth">All Teeth</div>
+          </ng-container>
+          <ng-container *ngIf="teethNumbers.length > 1 && teethNumbers.length < 32">
+            <div class="teeth-count">{{ teethNumbers.length }} Teeth Selected</div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <div mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close type="button">CANCEL</button>
+      <button 
+        mat-raised-button 
+        color="primary" 
+        type="submit" 
+        [disabled]="operationForm.invalid">
+        {{ isNew ? 'CREATE' : 'SAVE' }}
+      </button>
+    </div>
+  </form>
+</div>

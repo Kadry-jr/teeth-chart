@@ -1,0 +1,21 @@
+<div class="patient-info-container">
+  <div *ngIf="selectedPatient" class="patient-details">
+    <h2>{{ selectedPatient.name }} <span class="phone-inline">- 📞 {{ selectedPatient.phoneNumber }}</span></h2>
+  </div>
+  <div *ngIf="!selectedPatient" class="no-patient-selected">
+    <p>No patient selected</p>
+    <button mat-raised-button (click)="openPatientSelector()">
+      Select Patient
+    </button>
+  </div>
+
+  <div *ngIf="patients && patients.length > 0" class="patient-selector">
+    <mat-form-field class="patient-selector-field">
+      <mat-select [value]="selectedPatient?.id" (selectionChange)="onPatientSelected($event.value)">
+        <mat-option *ngFor="let patient of patients" [value]="patient.id">
+          {{ patient.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>

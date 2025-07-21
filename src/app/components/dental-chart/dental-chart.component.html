@@ -1,0 +1,31 @@
+<div class="dental-chart-main-container" >
+  <div class="left-panel" >
+    <div style="position: relative; width: 100%; height: 100%;">
+      <button (click)="toggleFullscreen()" class="fullscreen-btn">
+        <mat-icon>{{ isFullscreen ? 'fullscreen_exit' : 'fullscreen' }} </mat-icon>
+      </button>
+      <div #imageEditSection class="image-edit-section" style="width: 100%; height: 100%;">
+        <app-dental-chart-image
+          [upperTeeth]="upperTeeth"
+          [lowerTeeth]="lowerTeeth"
+          [selectedTeeth]="selectedTeeth"
+          [imageSrc]="imageSrc"
+          (toothToggled)="toggleToothSelection($event)">
+        </app-dental-chart-image>
+      </div>
+    </div>
+  </div>
+  <div class="right-panel" >
+    <app-dental-chart-quick-look
+      [selectedTeeth]="selectedTeeth"
+      [doctor]="selectedDoctor"
+      [priority]="selectedPriority"
+      [status]="selectedStatus"
+      [allSelected]="allTeethSelected"
+      (selectAll)="toggleSelectAllTeeth(true)"
+      (deselectAll)="toggleSelectAllTeeth(false)"
+      (addOperation)="addOperation()"
+      (statusChange)="onQuickLookStatusChange($event)">
+    </app-dental-chart-quick-look>
+  </div>
+</div>
